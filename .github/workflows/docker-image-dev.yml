@@ -48,4 +48,4 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Push Docker Image
-        run: docker push polinchw/customer:${{ steps.vars.outputs.short_ref }}
+        run: docker push polinchw/message-relay:${{ steps.vars.outputs.short_ref }}
