@@ -28,7 +28,7 @@ public class ScheduledTasks {
 	 */
 	@Scheduled(fixedRate = 5000)
 	public void sentEventsToKafka() {
-		
+
 		log.info("Sending unsent events...");
 		List<Event> events = eventRepository.findUnsentEvents();
 		for(Event e : events) {
@@ -40,6 +40,7 @@ public class ScheduledTasks {
 
 	/**
 	 * Delete the sent messages from the local database.
+	 * Run it daily.
 	 */
 	@Scheduled(fixedRate = 86000)
 	public void deleteSentMessages() {
