@@ -28,6 +28,7 @@ public class ScheduledTasks {
 	 */
 	@Scheduled(fixedRate = 5000)
 	public void sentEventsToKafka() {
+		
 		log.info("Sending unsent events...");
 		List<Event> events = eventRepository.findUnsentEvents();
 		for(Event e : events) {

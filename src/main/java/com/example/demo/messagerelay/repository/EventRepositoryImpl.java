@@ -7,7 +7,7 @@ import javax.persistence.PersistenceContext;
 
 import com.example.demo.messagerelay.entity.Event;
 
-public class EventRepsitoryImpl implements EventRepositoryCustom {
+public class EventRepositoryImpl implements EventRepositoryCustom {
 
     @PersistenceContext
     private EntityManager entityManager;
