@@ -1,7 +1,5 @@
 package com.example.demo.messagerelay.tasks;
 
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +22,13 @@ public class ScheduledTasks {
 	@Autowired
 	TopicProducer topicProducer;
 
+	/**
+	 * Send new events to Kafka every 5 seconds.
+	 * Mark the events as being sent in the database.
+	 */
 	@Scheduled(fixedRate = 5000)
 	public void sentEventsToKafka() {
+
 		log.info("Sending unsent events...");
 		List<Event> events = eventRepository.findUnsentEvents();
 		for(Event e : events) {
@@ -33,5 +36,15 @@ public class ScheduledTasks {
 			e.setMessageSent(true);
 			eventRepository.save(e);
 		}
+	}
+
+	/**
+	 * Delete the sent messages from the local database.
+	 * Run it daily.
+	 */
+	@Scheduled(fixedRate = 86000)
+	public void deleteSentMessages() {
+		int deletedItems = eventRepository.deleteSent();
+		log.info("Deleted {} items",deletedItems);
 	}
 }
