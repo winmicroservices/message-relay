@@ -2,19 +2,31 @@ package com.example.demo.messagerelay.repository;
 
 import java.util.List;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
+import org.springframework.stereotype.Repository;
 
 import com.example.demo.messagerelay.entity.Event;
+
 
 /**
 * Dao for the Event table.
 */
-public interface EventRepository extends JpaRepository<Event, Long> {
+@Repository
+public class EventRepository {
 
-    // TODO: Limit this to 100 items
+    @PersistenceContext
+    private EntityManager entityManager;
+
     String FIND_UNSENT_EVENTS = "select b from Event b where b.messageSent = null";
 
-    @Query(FIND_UNSENT_EVENTS)
-    List<Event> findUnsentEvents();
+    public List<Event> findUnsentEvents() {
+        return entityManager.createQuery(FIND_UNSENT_EVENTS, Event.class).setMaxResults(100).getResultList();
+    }
+
+    public void save(Event event) {
+        entityManager.merge(event);
+    }
+
 }
