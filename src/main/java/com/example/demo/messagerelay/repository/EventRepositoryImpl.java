@@ -14,7 +14,7 @@ public class EventRepositoryImpl implements EventRepositoryCustom {
 
     private String FIND_UNSENT_EVENTS = "select b from Event b where b.messageSent = null";
 
-    private String DELETE_SENT = "delete from Event b where b.messageSent != null";
+    private String DELETE_SENT = "delete from Event b where b.messageSent = true";
 
     @Override
     public List<Event> findUnsentEvents() {
