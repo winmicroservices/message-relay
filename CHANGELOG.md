@@ -1,4 +1,27 @@
-# 0.1.0 (2023-01-19)
+# [1.0.0](https://github.com/winmicroservices/message-relay/compare/v0.1.0...v1.0.0) (2023-01-20)
+
+
+### Bug Fixes
+
+* [#3](https://github.com/winmicroservices/message-relay/issues/3) Adding comments on frequeny of the run. ([37f230b](https://github.com/winmicroservices/message-relay/commit/37f230bf20670d09bf73ba7f5ecd01b4ffeff903))
+* [#3](https://github.com/winmicroservices/message-relay/issues/3) Changed the delete query to look for true. ([4245e60](https://github.com/winmicroservices/message-relay/commit/4245e607e45309ec9a48d72412f43494ec2930ac))
+* [#3](https://github.com/winmicroservices/message-relay/issues/3) Fixed the customer query. The name impl class must match the interface name pretty closely. ([5466bab](https://github.com/winmicroservices/message-relay/commit/5466bab758089540d4b47355a1aa7035cd6ec935))
+* [#3](https://github.com/winmicroservices/message-relay/issues/3) Organizing imports. ([0a59ff0](https://github.com/winmicroservices/message-relay/commit/0a59ff0814aa83fb42aa13b3161e9a628b6aae05))
+* [#3](https://github.com/winmicroservices/message-relay/issues/3) Working on customer queries. ([969a405](https://github.com/winmicroservices/message-relay/commit/969a4058f295e151fc37f9b9d2cc6b3ad9f62b2a))
+
+
+### Features
+
+* [#3](https://github.com/winmicroservices/message-relay/issues/3) Limiting the result to 100. ([742da7a](https://github.com/winmicroservices/message-relay/commit/742da7af72e5d009de55bd40b71dad7e3dda1c9b))
+
+
+### BREAKING CHANGES
+
+* No breaking change, I just want a new major release number.
+
+
+
+# [0.1.0](https://github.com/winmicroservices/message-relay/compare/007bad3b742759f01396aac7835e766c6391ec33...v0.1.0) (2023-01-19)
 
 
 ### Bug Fixes
