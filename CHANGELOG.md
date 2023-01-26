@@ -1,3 +1,17 @@
+# [1.1.0](https://github.com/winmicroservices/message-relay/compare/v1.0.0...v1.1.0) (2023-01-26)
+
+
+### Bug Fixes
+
+* Adding info to Kafka [#5](https://github.com/winmicroservices/message-relay/issues/5) ([868b8dc](https://github.com/winmicroservices/message-relay/commit/868b8dc2004c89026121c286f321e1d49b842dac))
+
+
+### Features
+
+* [#5](https://github.com/winmicroservices/message-relay/issues/5) Adding the eventId, id, and action to the message. ([073d27c](https://github.com/winmicroservices/message-relay/commit/073d27c3e9302c0976a47324f9cfed1e26856ba7))
+
+
+
 # [1.0.0](https://github.com/winmicroservices/message-relay/compare/v0.1.0...v1.0.0) (2023-01-20)
 
 
