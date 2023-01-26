@@ -32,7 +32,7 @@ public class ScheduledTasks {
 		log.info("Sending unsent events...");
 		List<Event> events = eventRepository.findUnsentEvents();
 		for(Event e : events) {
-			topicProducer.send(e.getPayload());
+			topicProducer.send(e.getPayload(),e.getEventId(),e.getId(),e.getState());
 			e.setMessageSent(true);
 			eventRepository.save(e);
 		}

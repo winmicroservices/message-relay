@@ -26,6 +26,26 @@ public class Event {
     @GeneratedValue(strategy = GenerationType.AUTO) 
     private long eventId;
 
+    public long getEventId() {
+        return this.eventId;
+    }
+
+    public void setEventId(long eventId) {
+        this.eventId = eventId;
+    }
+
+    public Long getId() {
+        return this.id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Boolean isMessageSent() {
+        return this.messageSent;
+    }
+
     /**
     * Used to track the state of the customer.
     */
