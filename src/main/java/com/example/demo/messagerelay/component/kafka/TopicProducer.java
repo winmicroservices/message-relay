@@ -1,5 +1,6 @@
 package com.example.demo.messagerelay.component.kafka;
 
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -25,17 +26,18 @@ public class TopicProducer {
 
     /**
      * Sends a create order message to a Kafka topic that tracks new customers.
-     * @param message The Customer object in json format.
+     * @param jsonMessage The Customer object in json format.
      */
-    public void send(String message, Long eventId, Long id, String action){
-        log.info("Payload message: {}", message);
+    public void send(String jsonMessage, Long eventId, Long id, String action) {
+        log.info("Payload message: {}", jsonMessage);
+        JSONObject jo = new JSONObject(jsonMessage);
+        jo.put("action", action);
+        jo.put("id",id.toString());
+        jo.put("eventId", eventId.toString());
         Message<String> m = MessageBuilder
-        .withPayload(message)
-        .setHeader(KafkaHeaders.TOPIC, topicName)
-        .setHeader("eventId",eventId.toString())
-        .setHeader("id",id.toString())
-        .setHeader("action",action)
-        .setHeader("X-Custom-Header", "Sending Custom Header with Spring Kafka")
+        .withPayload(jo.toString())
+        .setHeader(KafkaHeaders.TOPIC, this.topicName)
+        // .setHeader("X-Custom-Header", "Sending Custom Header with Spring Kafka")
         .build();
         kafkaTemplate.send(m);
     }
